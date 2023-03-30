@@ -72,7 +72,7 @@ const theme: MantineThemeOverride = {
   activeStyles: {
     backgroundColor: "violet.4",
   },
-  // fontFamily: Font.,
+  fontFamily: "Source Sans Pro, sans-serif",
   loader: "dots",
   globalStyles(theme) {
     return {

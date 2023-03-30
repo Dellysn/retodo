@@ -65,7 +65,7 @@ export default function IndexPage() {
                   <TodoItem />
                   <TodoItem />
 
-                  <Space h={70} />
+                  <Space h={90} />
                 </ScrollArea.Autosize>
               </Tabs.Panel>
             </Tabs>
@@ -124,7 +124,7 @@ export default function IndexPage() {
 function TodoItem() {
   // const { classes, theme } = useStyles();
   return (
-    <Box>
+    <Box className="mb-4">
       <Group noWrap align="start">
         <Radio
           styles={({}) => ({
