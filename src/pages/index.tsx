@@ -1,169 +1,191 @@
+import { HeaderAction, HEADER_HEIGHT } from "@/components/header";
+import BG from "@/public/bg.svg";
 import {
   Box,
   Button,
-  Center,
   Container,
-  createStyles,
   Flex,
   Group,
-  Loader,
+  Header,
+  Image,
   Paper,
-  Radio,
-  ScrollArea,
+  rem,
   SimpleGrid,
-  Space,
   Stack,
-  Tabs,
   Text,
-  Textarea,
   TextInput,
+  Title,
+  useMantineTheme,
 } from "@mantine/core";
-import { useTabStyles } from "../styles/tab.styles";
-import { Calendar, CalendarDays, Eye, User } from "lucide-react";
+import React from "react";
+import Hero from "@/public/hero.svg";
+import TeamUp from "@/public/teamup.svg";
+import Reminder from "@/public/reminder.svg";
+import Multitasking from "@/public/multitasking.svg";
+import Screen from "@/public/screen.svg";
+import Analytic from "@/public/landing-analytics.svg";
 
-export default function IndexPage() {
-  const { classes: tabClasses } = useTabStyles();
-  const todoTabs = ["notifications", "todos"];
+const IndexPage = () => {
+  const theme = useMantineTheme();
+  const styles = (color: string) => ({
+    backgroundColor: color,
+    display: "flex",
+    alignItems: "center",
+    width: "364px",
+    height: "476px",
+    borderRadius: "11px",
+  });
   return (
-    <Container size="sm">
-      <Box className="min-h-screen bg-white relative ">
-        <Box className=" ">
-          <Paper>
-            <Tabs defaultValue={todoTabs[1]} classNames={tabClasses}>
-              <Tabs.List>
-                <Tabs.Tab value={todoTabs[0]}>Notifications</Tabs.Tab>
-                <Tabs.Tab value={todoTabs[1]}>Todos</Tabs.Tab>
-              </Tabs.List>
+    <div
+      style={{
+        backgroundColor: "#ffffff11",
+      }}
+    >
+      <HeaderAction />
 
-              <Tabs.Panel value={todoTabs[0]}>
-                <Box sx={{ height: "100%" }}>
-                  {" "}
-                  <h1>Notifications</h1>
-                </Box>
-              </Tabs.Panel>
-              <Tabs.Panel value={todoTabs[1]}>
-                <ScrollArea.Autosize mah={500} color="violet.4">
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-                  <TodoItem />
-
-                  <Space h={90} />
-                </ScrollArea.Autosize>
-              </Tabs.Panel>
-            </Tabs>
-          </Paper>
-        </Box>
-        <Paper
-          shadow="xl"
-          p="md"
-          radius="md"
-          className="absolute  w-full bottom-0 h-[10rem]  scale-x-105"
-          sx={{
-            scale: "1.05",
-          }}
-        >
-          <TextInput placeholder="Task name here..." variant="unstyled" />
-          <Textarea placeholder="Description..." variant="unstyled" />
-          <Flex justify="space-between">
-            <Group noWrap>
-              <Button
-                variant="outline"
-                color="gray.7"
-                leftIcon={<CalendarDays className="w-4" />}
-                size="xs"
-              >
-                Due Date
-              </Button>
-              <Button
-                variant="outline"
-                color="gray.7"
-                leftIcon={<User className="w-4" />}
-                size="xs"
-              >
-                Assign To
-              </Button>
-            </Group>
-            <Group noWrap>
-              <Button
-                variant="outline"
-                color="gray.7"
-                leftIcon={<CalendarDays className="w-4" />}
-                size="xs"
-              >
-                Cancel
-              </Button>
-              <Button color="violet" size="xs">
-                Add Task
-              </Button>
-            </Group>
-          </Flex>
-        </Paper>
-      </Box>
-    </Container>
-  );
-}
-
-function TodoItem() {
-  // const { classes, theme } = useStyles();
-  return (
-    <Box className="mb-4">
-      <Group noWrap align="start">
-        <Radio
-          styles={({}) => ({
-            label: {
-              alignItems: "start",
-            },
-          })}
-          label={
-            <Stack spacing={4}>
-              <Text fz="sm" fw="bold">
-                Complete main UI components
+      <Container>
+        <Box py={rem(80)}>
+          <Flex gap="xl" align="center">
+            <Stack spacing="md">
+              <Text fz={30} fw={800}>
+                Task management and lists Tool
               </Text>
-              <Text color="gray" size="xs">
-                Would be good if we include every componet in design system..
+              <Text size={20}>
+                Retodo is a task management and lists tool that helps you
+                organize your work and life.
               </Text>
+
               <Group>
-                <Button
-                  leftIcon={<Calendar className="w-3" />}
-                  variant="link"
-                  color="gray"
-                  size="xs"
-                  px={0}
-                >
-                  6 Apr 2022
-                </Button>
-                <Button
-                  leftIcon={<User className="w-3" />}
-                  variant="link"
-                  color="gray"
-                  size="xs"
-                  px={0}
-                >
-                  Esther Howard
+                <TextInput
+                  placeholder="Organization or Individual email.."
+                  size="lg"
+                />
+                <Button color="violet.4" size="lg">
+                  Get Started
                 </Button>
               </Group>
             </Stack>
-          }
-        />
-      </Group>
-    </Box>
+            <Image src={Hero.src} width={533} alt="illustration" />
+          </Flex>
+        </Box>
+
+        <Box py={rem(80)}>
+          <Text align="center" size={30} weight={800} py={20}>
+            Featured services that help you get things done
+          </Text>
+          <Flex justify="center" gap="lg">
+            <Paper sx={styles("#525ffb")}>
+              <Stack align="center">
+                <Image src={Multitasking.src} width={160} alt="image" />
+                <Text align="center" size="lg" weight={800}>
+                  Keep tasks in one place
+                </Text>
+                <Text align="center" size="sm">
+                  Save time, avoid losing work and information, delegate, and
+                  track tasks to stay on schedule
+                </Text>
+              </Stack>
+            </Paper>
+            <Paper sx={{ ...styles("#e9f0ff"), marginTop: "80px" }}>
+              <Stack align="center">
+                <Image src={Reminder.src} width={160} alt="image" />
+                <Text align="center" size="lg" weight={800}>
+                  Keep tasks in one place
+                </Text>
+                <Text align="center" size="sm">
+                  Save time, avoid losing work and information, delegate, and
+                  track tasks to stay on schedule
+                </Text>
+              </Stack>
+            </Paper>
+            <Paper sx={styles("#ffe7aa")}>
+              <Stack align="center">
+                <Image src={TeamUp.src} width={160} alt="image" />
+                <Text align="center" size="lg" weight={800}>
+                  Keep tasks in one place
+                </Text>
+                <Text align="center" size="sm">
+                  Save time, avoid losing work and information, delegate, and
+                  track tasks to stay on schedule
+                </Text>
+              </Stack>
+            </Paper>
+          </Flex>
+        </Box>
+
+        <Box py={rem(80)}>
+          <Flex gap="xl" align="center">
+            {" "}
+            <Image src={Screen.src} width={433} alt="illustration" />
+            <Stack spacing="md">
+              <Text fz={30} fw={800}>
+                Why do you need task management software?
+              </Text>
+              <Text size={20}>
+                Do you waste time organizing sticky notes, searching your email
+                and apps for to-dos, and figuring out what to work on first?
+                Then you need one solution to prioritize your tasks, manage your
+                time, and meet your deadlines.
+              </Text>
+
+              <div>
+                {" "}
+                <Button color="violet.4" size="lg">
+                  Learn more
+                </Button>
+              </div>
+            </Stack>
+          </Flex>
+        </Box>
+        <Box py={rem(80)}>
+          <Flex gap="xl" align="space-between">
+            <Stack spacing="md">
+              <Text fz={30} fw={800}>
+                Seamless Team Workflow & Efficient Task Management{" "}
+              </Text>
+
+              <Text size={20}>
+                Do you waste time organizing sticky notes, searching your email
+                and apps for to-dos, and figuring out what to work on first?
+                Then you need one solution to prioritize your tasks, manage your
+                time, and meet your deadlines.
+              </Text>
+
+              <div>
+                {" "}
+                <Button color="violet.4" size="lg">
+                  Learn more
+                </Button>
+              </div>
+            </Stack>
+            <Image src={Analytic.src} width={433} alt="illustration" />
+          </Flex>
+        </Box>
+        <Box py={rem(80)}>
+          <Flex gap="xl" justify="center">
+            <Stack align="center">
+              {" "}
+              <Text fz={30} fw={800}>
+                Get better work done
+              </Text>
+              <Text size={20}>
+                See why millions of people across 195 countries use Dash.
+              </Text>
+              <Group>
+                <TextInput
+                  placeholder="Organization or Individual email.."
+                  size="lg"
+                />
+                <Button color="violet.4" size="lg">
+                  Get Started
+                </Button>
+              </Group>
+            </Stack>
+          </Flex>
+        </Box>
+      </Container>
+    </div>
   );
-}
+};
+
+export default IndexPage;
