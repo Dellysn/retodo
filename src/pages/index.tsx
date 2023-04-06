@@ -1,44 +1,36 @@
-import { HeaderAction, HEADER_HEIGHT } from "@/components/header";
-import BG from "@/public/bg.svg";
+import { HeaderAction } from '@/components/header';
+import Hero from '@/public/hero.svg';
+import Analytic from '@/public/landing-analytics.svg';
+import Multitasking from '@/public/multitasking.svg';
+import Reminder from '@/public/reminder.svg';
+import Screen from '@/public/screen.svg';
+import TeamUp from '@/public/teamup.svg';
 import {
   Box,
   Button,
   Container,
   Flex,
-  Group,
-  Header,
-  Image,
+  Group, Image,
   Paper,
-  rem,
-  SimpleGrid,
-  Stack,
+  rem, Stack,
   Text,
-  TextInput,
-  Title,
-  useMantineTheme,
-} from "@mantine/core";
-import React from "react";
-import Hero from "@/public/hero.svg";
-import TeamUp from "@/public/teamup.svg";
-import Reminder from "@/public/reminder.svg";
-import Multitasking from "@/public/multitasking.svg";
-import Screen from "@/public/screen.svg";
-import Analytic from "@/public/landing-analytics.svg";
+  TextInput, useMantineTheme
+} from '@mantine/core';
 
 const IndexPage = () => {
   const theme = useMantineTheme();
   const styles = (color: string) => ({
     backgroundColor: color,
-    display: "flex",
-    alignItems: "center",
-    width: "364px",
-    height: "476px",
-    borderRadius: "11px",
+    display: 'flex',
+    alignItems: 'center',
+    width: '364px',
+    height: '476px',
+    borderRadius: '11px',
   });
   return (
     <div
       style={{
-        backgroundColor: "#ffffff11",
+        backgroundColor: '#ffffff',
       }}
     >
       <HeaderAction />
@@ -74,7 +66,7 @@ const IndexPage = () => {
             Featured services that help you get things done
           </Text>
           <Flex justify="center" gap="lg">
-            <Paper sx={styles("#525ffb")}>
+            <Paper sx={styles('#525ffb')}>
               <Stack align="center">
                 <Image src={Multitasking.src} width={160} alt="image" />
                 <Text align="center" size="lg" weight={800}>
@@ -86,7 +78,7 @@ const IndexPage = () => {
                 </Text>
               </Stack>
             </Paper>
-            <Paper sx={{ ...styles("#e9f0ff"), marginTop: "80px" }}>
+            <Paper sx={{ ...styles('#e9f0ff'), marginTop: '80px' }}>
               <Stack align="center">
                 <Image src={Reminder.src} width={160} alt="image" />
                 <Text align="center" size="lg" weight={800}>
@@ -98,7 +90,7 @@ const IndexPage = () => {
                 </Text>
               </Stack>
             </Paper>
-            <Paper sx={styles("#ffe7aa")}>
+            <Paper sx={styles('#ffe7aa')}>
               <Stack align="center">
                 <Image src={TeamUp.src} width={160} alt="image" />
                 <Text align="center" size="lg" weight={800}>
@@ -115,7 +107,7 @@ const IndexPage = () => {
 
         <Box py={rem(80)}>
           <Flex gap="xl" align="center">
-            {" "}
+            {' '}
             <Image src={Screen.src} width={433} alt="illustration" />
             <Stack spacing="md">
               <Text fz={30} fw={800}>
@@ -129,8 +121,8 @@ const IndexPage = () => {
               </Text>
 
               <div>
-                {" "}
-                <Button color="violet.4" size="lg">
+                {' '}
+                <Button color="violet.4" size="lg" href="/about" component="a">
                   Learn more
                 </Button>
               </div>
@@ -141,7 +133,7 @@ const IndexPage = () => {
           <Flex gap="xl" align="space-between">
             <Stack spacing="md">
               <Text fz={30} fw={800}>
-                Seamless Team Workflow & Efficient Task Management{" "}
+                Seamless Team Workflow & Efficient Task Management{' '}
               </Text>
 
               <Text size={20}>
@@ -152,8 +144,8 @@ const IndexPage = () => {
               </Text>
 
               <div>
-                {" "}
-                <Button color="violet.4" size="lg">
+                {' '}
+                <Button color="violet.4" size="lg" href="/about" component="a">
                   Learn more
                 </Button>
               </div>
@@ -164,7 +156,7 @@ const IndexPage = () => {
         <Box py={rem(80)}>
           <Flex gap="xl" justify="center">
             <Stack align="center">
-              {" "}
+              {' '}
               <Text fz={30} fw={800}>
                 Get better work done
               </Text>
